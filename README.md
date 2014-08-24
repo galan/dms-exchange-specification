@@ -1,0 +1,2 @@
+# Summary
+The goal of the dms-exchange-specification (dxs for  short) is to define a standard, language- and vendor-agnostic format to exchange data between document management systems. Creating and reading of the format is designed to be simple and straight-forward.
