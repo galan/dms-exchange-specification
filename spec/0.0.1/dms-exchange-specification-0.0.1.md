@@ -37,7 +37,7 @@ Example 3: A physical document with four double-sided pages have been scanned in
 ## Container
 A container consists of the document and the associated metadata. It groups the document-files and the metadata either into a directory or a zip-archive.
 
-The container itself will be added to the exported archive.
+The container itself will be added to the export-archive.
 
 ## Export-archive
 The final zip file that contains all containers and is used by the end-user to transport/export/backup his documents.
@@ -46,6 +46,9 @@ The final zip file that contains all containers and is used by the end-user to t
 
 # Packaging
 A dms typically stores large amounts of documents, exporting these as individual files is obviously not the most efficent option. To simplify the transfer, storage and access - zip is choosen as archive format. It provides open implementations and tools for practically all plaforms and languages.
+
+Metadata is written to simple json-files. Json is well known and has wide tool-support for all languages and plattforms. To validate and ensure correctness, json-schema is used.
+
 
 The following section describes how the archive is structured and the containers are stored in the exported archive.
 
@@ -67,79 +70,10 @@ Example:
 |-- meta.json
 ````
 
-## Export-archive
-The export-archive contains the export-metadata and all containers. The containers can be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. The subdirectory-names have no relevance for the import.
-
-Structure:
-````
-export-archive
-|-- export metadata
-|-- folders
-    |-- containers
-````
-
-Example:
-````
-export-archive.zip
-|-- export.json
-|-- 0001
-|   |-- doc-01.zip
-|   |-- doc-02.zip
-|-- 0002
-    |-- 0002-0001
-        |-- doc-03.zip
-        |-- doc-04
-            |-- document.pdf
-            |-- meta.json
-````
-
-## Export-archive metadata
-The following JSON-Schema represents the archive-metadata specification. The file has to be named `export-json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
-
-```javascript
-{
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "dms-exchange-specification (dxs) archive metadata description",
-	"description": "This schema defines metadata for the export",
-	"type": "object",
-	"properties": {
-		"version": {
-			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
-			"enum": ["0.1"]
-		},
-		"description": {
-		    "description": "Free-text field for additional information",
-		    "type": "string"
-		}
-		"exportBy": {
-			"description": "User who has triggered the export.",
-			"type": "string",
-			"format": "email"
-		}
-		"tsExport": {
-			"description": "Timestamp when the export was performed.",
-			"type": "string",
-			"format": "date-time"
-		},
-		"numberOfDocuments": {
-		    "description": "The number of documents in this archive. Optional, since depending on the export-process this might not be known in advance.",
-		    "type": "integer",
-		    "minimum": 0
-		}
-    },
-    "required": ["version"]
-}
-```
-
-
-
-# Metadata
-The metadata of a document is written to a simple json-file. Json is well known and has wide tool-support for all languages and plattforms.
-
-The filename of the metadata-file is `meta.json`, it is located inside the container.
-
 ## Document-metadata
-The following JSON-Schema represents the metadata specification, any `meta.json` in the specific version has to validate against it.
+The following JSON-Schema represents the metadata specification, any `meta.json`  has to validate against it.
+
+The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
 
 ```javascript
 {
@@ -234,5 +168,70 @@ The following JSON-Schema represents the metadata specification, any `meta.json`
 		}
 	},
 	"required": ["version", "documents"]
+}
+```
+
+
+## Export-archive
+The export-archive contains the export-metadata and all containers. The containers can be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. The subdirectory-names have no relevance for the import.
+
+Structure:
+````
+export-archive
+|-- export metadata
+|-- folders
+    |-- containers
+````
+
+Example:
+````
+export-archive.zip
+|-- export.json
+|-- 0001
+|   |-- doc-01.zip
+|   |-- doc-02.zip
+|-- 0002
+    |-- 0002-0001
+        |-- doc-03.zip
+        |-- doc-04
+            |-- document.pdf
+            |-- meta.json
+````
+
+## Export-archive metadata
+The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
+
+```javascript
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "dms-exchange-specification (dxs) archive metadata description",
+	"description": "This schema defines metadata for the export",
+	"type": "object",
+	"properties": {
+		"version": {
+			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
+			"enum": ["0.1"]
+		},
+		"description": {
+		    "description": "Free-text field for additional information",
+		    "type": "string"
+		}
+		"exportBy": {
+			"description": "User who has triggered the export.",
+			"type": "string",
+			"format": "email"
+		}
+		"tsExport": {
+			"description": "Timestamp when the export was performed.",
+			"type": "string",
+			"format": "date-time"
+		},
+		"numberOfDocuments": {
+		    "description": "The number of documents in this archive. Optional, since depending on the export-process this might not be known in advance.",
+		    "type": "integer",
+		    "minimum": 0
+		}
+    },
+    "required": ["version"]
 }
 ```
