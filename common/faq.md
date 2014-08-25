@@ -9,5 +9,6 @@ That's up to the dms provider. Some suggestions/examples how it could work:
 This is highly dependent on the dms. It contains of the following generics steps:
 1. Read and validate the `export.json`
 2. Iterate recursivly over all directories
-   1. If a `meta.json` file exists read it and import the documents. Travese directory up and continue (don't recurse inside containers).
-   1. If a zip-file exists, read it, extract the `meta.json` and import the documents. Continue to traverse.
+    1. If a `meta.json` file exists read it and import the documents. Travese directory up and continue (don't recurse inside containers).
+    2. If a zip-file exists, read it, extract the `meta.json` and import the documents. Continue to traverse.
+
