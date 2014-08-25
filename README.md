@@ -16,7 +16,7 @@ To create a full export of all your documents along with the metadata (the main 
 To provide feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
 
 # Further reading
-* FAQ
-* History
-* Reference
-* About
+* [FAQ](https://github.com/galan/dms-exchange-specification/blob/master/common/faq.md)
+* [History](https://github.com/galan/dms-exchange-specification/blob/master/common/history.md)
+* [Reference](https://github.com/galan/dms-exchange-specification/blob/master/common/reference.md)
+* [About](https://github.com/galan/dms-exchange-specification/blob/master/common/about.md)
