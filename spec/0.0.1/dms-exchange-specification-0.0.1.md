@@ -75,104 +75,8 @@ The following JSON-Schema represents the metadata specification, any `meta.json`
 
 The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
 
-```javascript
-{
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "dms-exchange-specification (dxs) metadata description",
-	"description": "This schema defines the metadata for a document as specified by the dms-exchange-specification.",
-	"type": "object",
-	"properties": {
-		"version": {
-			"description": "Valid version for this schema.",
-			"enum": ["0.0.1"]
-		},
-		"documents": {
-			"description": "Groups the document-files that form a document.",
-			"type": "array",
-			"minItems": 1,
-			"items": {
-				"type": "object",
-				"properties": {
-					"filename": {
-						"description": "Original name of the indexed document-file.",
-						"type": "string"
-					},
-					"scannedBy": {
-						"description": "User who has scanned the document-file.",
-						"type": "string",
-						"format": "email"
-					},
-					"importedBy": {
-						"description": "User who has indexed the document-file",
-						"type": "string",
-						"format": "email"
-					},
-					"tsUpload": {
-						"description": "Timestamp when the document-file has been added to the dms",
-						"type": "string",
-						"format": "date-time"
-					},
-					"tsUpdate": {
-						"description": "Timestamp when the document-file has been changed the last time",
-						"type": "string",
-						"format": "date-time"
-					},
-					"rotation": {
-						"description": "Degree the document-file has to rotate clockwise to have a correct orientation.",
-						"enum": [0, 90, 180, 270],
-						"default": 0
-					}
-				},
-				"required": ["filename"]
-			}
-		},
-		"tsDocument": {
-			"description": "Time the document was creating in the dms",
-			"type": "string",
-			"format": "date-time"
-		},
-		"note": {
-			"description": "Free text field for document-notes, made by the users",
-			"type": "string"
-		},
-		"location": {
-			"description": "Physical location of the scanned documents, if available",
-			"type": "string"
-		},
-		"idUser": {
-			"description": "An id the user can define uniquely for the document",
-			"type": "string"
-		},
-		"idSystem": {
-			"description": "An id the system has provided for the document",
-			"type": "string"
-		},
-		"directory": {
-			"description": "If the dms works hierarchically, this field contains the directory. It is written in *nix-style, starting from the root downwards, using slashes.",
-			"type": "string"
-		},
-		"labels": {
-			"description": "Tagging keywords",
-			"type": "array",
-			"items": {
-				"type": "string"
-			},
-			"uniqueItems": true
-		},
-		"optionIndexed": {
-			"description": "Should the document be shown in the index (if using a search), or only when the user navigates to the document explicitly.",
-			"type": "boolean",
-			"default": true
-		},
-		"optionOcr": {
-			"description": "Should the document be analysed or not.",
-			"type": "boolean",
-			"default": true
-		}
-	},
-	"required": ["version", "documents"]
-}
-```
+Web: https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/meta.schema.json
+Raw: https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/meta.schema.json
 
 
 ## Export-archive
@@ -204,37 +108,5 @@ export-archive.zip
 ## Export-archive metadata
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
-```javascript
-{
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "dms-exchange-specification (dxs) export-archive metadata description",
-	"description": "This schema defines metadata for the export",
-	"type": "object",
-	"properties": {
-		"version": {
-			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
-			"enum": ["0.1"]
-		},
-		"description": {
-		    "description": "Free-text field for additional information",
-		    "type": "string"
-		}
-		"exportBy": {
-			"description": "User who has triggered the export.",
-			"type": "string",
-			"format": "email"
-		}
-		"tsExport": {
-			"description": "Timestamp when the export was performed.",
-			"type": "string",
-			"format": "date-time"
-		},
-		"numberOfDocuments": {
-		    "description": "The number of documents in this archive. Optional, since depending on the export-process this might not be known in advance.",
-		    "type": "integer",
-		    "minimum": 0
-		}
-    },
-    "required": ["version"]
-}
-```
+Web: https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/export.schema.json
+Raw: https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/export.schema.json
