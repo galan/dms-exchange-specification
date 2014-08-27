@@ -6,7 +6,7 @@ Version 0.0.1 - released: not yet released
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 1. Software using dxs MUST provide a way to import AND export the desired content via the user-interface (website, desktop or mobile application). Additional the export/import SHOULD be provided by an API.
-2. The import or export SHOULD be transfered over a secure encrypted connection, eg. HTTPS, SSH, SFTP, etc.
+2. The import and export SHOULD be transfered over a secure encrypted connection (eg. HTTPS, SSH, SFTP, etc.)
 3. The export MUST comply with the packaging specified in the section "Packaging"
 4. It is REQUIRED that the metadata is given in the JSON format, and validate against the JSON-Schema specified in the section "Reference"
 
@@ -75,9 +75,7 @@ The following JSON-Schema represents the metadata specification, any `meta.json`
 
 The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
 
-* Web: https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/meta.schema.json
-* Raw: https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/meta.schema.json
-
+See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/meta.schema.json).
 
 ## Export-archive
 The export-archive contains the export-metadata and all containers. The containers can be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. The subdirectory-names have no relevance for the import.
@@ -108,5 +106,4 @@ export-archive.zip
 ## Export-archive metadata
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
-* Web: https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/export.schema.json
-* Raw: https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/export.schema.json
+See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/export.schema.json).
