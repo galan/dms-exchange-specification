@@ -79,46 +79,46 @@ The following JSON-Schema represents the document-metadata specification. The fi
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title": "dms-exchange-specification (dxs) metadata description",
-	"description": "This schema defines the metadata for a logical document as specified by the dms-exchange-specification.",
+	"description": "This schema defines the metadata for a document as specified by the dms-exchange-specification.",
 	"type": "object",
 	"properties": {
 		"version": {
 			"description": "Valid version for this schema.",
-			"enum": ["0.1"]
+			"enum": ["0.0.1"]
 		},
 		"documents": {
-			"description": "Groups the files that form a logical document.",
+			"description": "Groups the document-files that form a document.",
 			"type": "array",
 			"minItems": 1,
 			"items": {
 				"type": "object",
 				"properties": {
 					"filename": {
-						"description": "Original name of the indexed file.",
+						"description": "Original name of the indexed document-file.",
 						"type": "string"
 					},
 					"scannedBy": {
-						"description": "User who has scanned the file.",
+						"description": "User who has scanned the document-file.",
 						"type": "string",
 						"format": "email"
 					},
 					"importedBy": {
-						"description": "User who has indexed the file",
+						"description": "User who has indexed the document-file",
 						"type": "string",
 						"format": "email"
 					},
 					"tsUpload": {
-						"description": "Timestamp when the file has been added to the dms",
+						"description": "Timestamp when the document-file has been added to the dms",
 						"type": "string",
 						"format": "date-time"
 					},
 					"tsUpdate": {
-						"description": "Timestamp when the document has been changed the last time",
+						"description": "Timestamp when the document-file has been changed the last time",
 						"type": "string",
 						"format": "date-time"
 					},
 					"rotation": {
-						"description": "Degree the document has to be rotated clockwise to have a correct orientation.",
+						"description": "Degree the document-file has to rotate clockwise to have a correct orientation.",
 						"enum": [0, 90, 180, 270],
 						"default": 0
 					}
@@ -127,6 +127,7 @@ The following JSON-Schema represents the document-metadata specification. The fi
 			}
 		},
 		"tsDocument": {
+			"description": "Time the document was creating in the dms",
 			"type": "string",
 			"format": "date-time"
 		},
@@ -138,11 +139,11 @@ The following JSON-Schema represents the document-metadata specification. The fi
 			"description": "Physical location of the scanned documents, if available",
 			"type": "string"
 		},
-		"userId": {
+		"idUser": {
 			"description": "An id the user can define uniquely for the document",
 			"type": "string"
 		},
-		"systemId": {
+		"idSystem": {
 			"description": "An id the system has provided for the document",
 			"type": "string"
 		},
@@ -159,12 +160,14 @@ The following JSON-Schema represents the document-metadata specification. The fi
 			"uniqueItems": true
 		},
 		"optionIndexed": {
-			"description": "Should the document be shown in the index (if using a search), or only when the user navigates to the document explicitly. Defaults to true.",
-			"type": "boolean"
+			"description": "Should the document be shown in the index (if using a search), or only when the user navigates to the document explicitly.",
+			"type": "boolean",
+			"default": true
 		},
 		"optionOcr": {
-			"description": "Should the document be analysed or not. Defaults to true.",
-			"type": "boolean"
+			"description": "Should the document be analysed or not.",
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"required": ["version", "documents"]
@@ -204,7 +207,7 @@ The following JSON-Schema represents the archive-metadata specification. The fil
 ```javascript
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "dms-exchange-specification (dxs) archive metadata description",
+	"title": "dms-exchange-specification (dxs) export-archive metadata description",
 	"description": "This schema defines metadata for the export",
 	"type": "object",
 	"properties": {
