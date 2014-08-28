@@ -13,35 +13,22 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 
 # Terminology
+* **File** - A single file in the filesystem.
+* **Page** - A single page of a document (eg. A4, Letter, custom, ..).
+* **Document-file** - A file that is processable by a dms and contains at least one page.
 
-## File
-A single file in the filesystem.
+    Document-files that can contain only one page are images (eg. jpg, tiff, png, ..) as well as some other formats such as txt (no sematical boundaries). Other document-files can contain more then one page (eg. pdf, doc, ppt, ..)
+* **Document** - A document consists of at least one document-file, subsequent of at least one page.
 
-## Page
-A single page of a document (eg. A4, Letter, custom, ..).
+    *Example 1*: A physical document with four pages have been scanned into four jpg files. The document consists of four document-files with four pages.
 
-## Document-file
-A file that is processable by a dms and contains at least one page.
+    *Example 2*: A physical document with four pages that have been scanned into one pdf file. The document consists of one document-file with four pages.
 
-Document-files that can contain only one page are images (eg. jpg, tiff, png, ..) as well as some other formats such as txt (no sematical boundaries). Other document-files can contain more then one page (eg. pdf, doc, ppt, ..)
+    *Example 3*: A physical document with four double-sided pages have been scanned into four pdf files. Each document-files contains two pages. The document consists of four document-files with eight pages.
+* **Container** - A container consists of the document and the associated metadata. It groups the document-files and the metadata either into a directory or a zip-archive.
 
-## Document
-A document consists of at least one document-file, subsequent of at least one page.
-
-Example 1: A physical document with four pages have been scanned into four jpg files. The document consists of four document-files with four pages.
-
-Example 2: A physical document with four pages that have been scanned into one pdf file. The document consists of one document-file with four pages.
-
-Example 3: A physical document with four double-sided pages have been scanned into four pdf files. Each document-files contains two pages. The document consists of four document-files with eight pages.
-
-## Container
-A container consists of the document and the associated metadata. It groups the document-files and the metadata either into a directory or a zip-archive.
-
-The container itself will be added to the export-archive.
-
-## Export-archive
-The final zip file that contains all containers and is used by the end-user to transport/export/backup his documents.
-
+    The container itself will be added to the export-archive.
+* **Export-archive** - The final zip file that contains all containers and is used by the end-user to transport/export/backup his documents.
 
 
 # Packaging
@@ -107,3 +94,4 @@ export-archive.zip
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
 See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/export.schema.json).
+
