@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 0.0.1 - released: 2014-08-30
+Version 0.0.2 - released: not yet released
 
 # Specification
 
@@ -63,7 +63,7 @@ The following JSON-Schema represents the metadata specification, any `meta.json`
 
 The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
 
-See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/meta.schema.json).
+See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/meta.schema.json).
 
 
 ## Export-archive
@@ -97,4 +97,4 @@ export-archive.zip
 ### Export-archive metadata
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
-See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.1/export.schema.json).
+See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/export.schema.json).

@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "dms-exchange-specification (dxs) export-archive metadata description",
+	"description": "This schema defines metadata for the export",
+	"type": "object",
+	"properties": {
+		"version": {
+			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
+			"enum": ["0.0.2"]
+		},
+		"description": {
+		    "description": "Free-text field for additional information",
+		    "type": "string"
+		},
+		"exportBy": {
+			"description": "User who has triggered the export.",
+			"type": "string",
+			"format": "email"
+		},
+		"tsExport": {
+			"description": "Timestamp when the export was performed.",
+			"type": "string",
+			"format": "date-time"
+		},
+		"numberOfDocuments": {
+		    "description": "The number of documents in this archive. Optional, since depending on the export-process this might not be known in advance.",
+		    "type": "integer",
+		    "minimum": 0
+		}
+    },
+    "required": ["version"]
+}
