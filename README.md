@@ -19,6 +19,6 @@ To provide feedback, please [open an issue on github](https://github.com/galan/d
 
 # Further reading
 * [FAQ](https://github.com/galan/dms-exchange-specification/blob/master/common/faq.md)
-* [History](https://github.com/galan/dms-exchange-specification/blob/master/common/history.md)
+* [Change History](https://github.com/galan/dms-exchange-specification/blob/master/common/changehistory.md)
 * [Reference](https://github.com/galan/dms-exchange-specification/blob/master/common/reference.md)
 * [About](https://github.com/galan/dms-exchange-specification/blob/master/common/about.md)
