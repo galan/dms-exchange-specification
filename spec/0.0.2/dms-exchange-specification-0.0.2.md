@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 0.0.2 - released: not yet released
+Version 0.0.2 - released: in development
 
 # Specification
 
