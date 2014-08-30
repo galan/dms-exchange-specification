@@ -1,6 +1,6 @@
 # Reference
 
-# DMS providing native support for dms-exhange format
+# DMS providing native support for dxs
 List  with vendors or independent implentations will follow
 
 # External links to relevant resources
@@ -8,7 +8,7 @@ List  with vendors or independent implentations will follow
 ## JSON-Schema
 * [JSON-Schema](http://json-schema.org/)
 * [Online JSON-Schema validator](http://json-schema-validator.herokuapp.com/)
-* [JSON-Schema implementation](http://json-schema.org/implementations.html)
+* [JSON-Schema implementations](http://json-schema.org/implementations.html)
 
 ## Zip
 * [Wikipedia](https://en.wikipedia.org/wiki/Zip_%28file_format%29)

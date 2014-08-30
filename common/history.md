@@ -1,3 +1,5 @@
-# History / ChangeLog
+# History / Changes
 * 0.0.1
-Initial draft
+Initial version
+* 0.0.2
+- clarify nested containers
