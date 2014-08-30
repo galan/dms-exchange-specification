@@ -1,6 +1,8 @@
 # Summary
 The goal of the dms-exchange-specification (dxs for short) is to define a standard, language- and vendor-agnostic format to exchange data between document-management-systems, or create decentral offline-backups. Creating and reading of the format is designed to be simple and straight-forward.
 
+To provide feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
+
 # Specification
 
 * Current Version: [0.0.1](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.1/dms-exchange-specification-0.0.1.md)
@@ -15,7 +17,7 @@ There is no standard to export the indexed documents. Nearly all dms vendors pro
 
 To create a full export of all your documents along with the metadata (the main reason to use a dms and not the plain filesystem) a standard is required, vendors and users can rely on. This is the purpose of this speficication. In the first revision the core-features of a dms will be covered, these are documents and metadata. Vendor-specific parts are intentionally left out, such as workflows, usermanagement and constraints, etc.. Everyone is welcome to contribute input, ideas, proofreading, etc. in order to create a (hopefully) industry-wide standard that revives the tool-landscape.
 
-To provide feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
+For feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
 
 # Further reading
 * [FAQ](https://github.com/galan/dms-exchange-specification/blob/master/common/faq.md)
