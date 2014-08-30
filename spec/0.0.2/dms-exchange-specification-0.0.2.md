@@ -41,7 +41,7 @@ The following section describes how the archive is structured and the containers
 ## Containers
 
 ### Structure
-A container is just a directory with the document-files and the related metadata. This directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance.
+A container is just a directory with the document-files and the related metadata. This directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance. Containers can not be nested - a directory of a container can not have subdirectories with other containers or other data.
 
 Structure:
 ````
