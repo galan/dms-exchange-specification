@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 0.0.2 - released: 2014-09-01
+Version 1.0.0-beta.1 - released: in development
 
 # Specification
 
@@ -93,6 +93,9 @@ export-archive.zip
             |-- document.pdf
             |-- meta.json
 ````
+
+### Splitting
+Depending on the amount of the documents and the limits of the system an export-archive can become to large to fit all containers into a single zip-archive. In this case the containers MAY be distributed over multiple export-archives. Each export-archives MUST contain the export-archive metadata. A container SHALL NOT be splitted or be placed into multiple export-archives. The extension of the different export-archives keeps `.zip`.
 
 ### Export-archive metadata
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
