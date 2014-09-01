@@ -1,7 +1,6 @@
 # Chang History
-* 0.0.2
+* 1.0.0-beta.1
+* 1.0.0-alpha.2
+* 1.0.0-alpha.1
 
-    clarify nested containers
-* 0.0.1
-
-    Initial version
+    Change history will start with 1.0.0
