@@ -1,5 +1,5 @@
 # Summary
-The goal of the dms-exchange-specification (dxs for short) is to define a standard, language- and vendor-agnostic format to exchange data between document-management-systems, or create decentral offline-backups. Creating and reading of the format is designed to be simple and straight-forward.
+![logo](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/common/dxs.png) The goal of the dms-exchange-specification (dxs for short) is to define a standard, language- and vendor-agnostic format to exchange data between document-management-systems, or create decentral offline-backups. Creating and reading of the format is designed to be simple and straight-forward.
 
 To provide feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
 
