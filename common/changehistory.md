@@ -1,4 +1,4 @@
-# Chang History
+# Change History
 Change history will start with 1.0.0
 
 * [1.0.0-beta.1](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.1/dms-exchange-specification-1.0.0-beta.1.md)
