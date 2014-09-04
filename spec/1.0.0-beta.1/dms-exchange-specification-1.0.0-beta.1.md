@@ -2,7 +2,9 @@
 Version 1.0.0-beta.1 - released: in development
 
 Table of content
-* [1. Specification](#1.-Specification)
+* [1. Specification](#1-Specification)
+* [2. Terminology](#2-Terminology)
+* [3. Packaging](#3-Packaging)
 
 # 1. Specification
 
@@ -100,10 +102,10 @@ export-archive.zip
 ### 3.2.2 Splitting
 Depending on the amount of the documents and the limits of the system an export-archive can become to large to fit all containers into a single zip-archive. In this case the containers MAY be distributed over multiple export-archives. Each export-archives MUST contain the export-archive metadata. A container SHALL NOT be splitted or be placed into multiple export-archives. The extension of the different export-archives keeps `.zip`.
 
-### Export-archive metadata
+### 3.2.3 Export-archive metadata
 The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
 See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/export.schema.json).
 
-### 3.3.3 MIME Type
+### 3.2.4 MIME Type
 The export-archive is a zip, therefore the MIME Type MUST be `application/zip`.
