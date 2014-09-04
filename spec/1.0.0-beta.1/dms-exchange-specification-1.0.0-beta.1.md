@@ -1,7 +1,10 @@
 # DMS Exchange Specification
 Version 1.0.0-beta.1 - released: in development
 
-# Specification
+Table of content
+* [1. Specification](#1.-Specification)
+
+# 1. Specification
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
@@ -12,7 +15,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 
 
-# Terminology
+# 2. Terminology
 * **File** - A single file in the filesystem.
 * **Page** - A single page of a document (eg. A4, Letter, custom, ..).
 * **Document-file** - A file that is processable by a dms and contains at least one page.
@@ -31,16 +34,16 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 * **Export-archive** - The final zip file that contains all containers and is used by the end-user to transport/export/backup his documents.
 
 
-# Packaging
+# 3. Packaging
 A dms typically stores large amounts of documents, exporting these as individual files is obviously not the most efficent option. To simplify the transfer, storage and access - zip is choosen as archive format. It provides open implementations and tools for practically all plaforms and languages.
 
 Metadata is written to simple json-files. Json is well known and has wide tool-support for all languages and plattforms. To validate and ensure correctness, json-schema is used.
 
 The following section describes how the archive is structured and the containers are stored in the exported archive.
 
-## Containers
+## 3.1 Containers
 
-### Structure
+### 3.1.1 Structure
 A container is just a directory with the document-files and the related metadata. This directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance. Containers can not be nested - a directory of a container can not have subdirectories with other containers or other data.
 
 Structure:
@@ -58,7 +61,7 @@ Example:
 |-- meta.json
 ````
 
-### Document-metadata
+### 3.1.2 Document-metadata
 The following JSON-Schema represents the metadata specification, any `meta.json`  has to validate against it.
 
 The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
@@ -66,9 +69,9 @@ The following JSON-Schema represents the document-metadata specification. The fi
 See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/meta.schema.json).
 
 
-## Export-archive
+## 3.2 Export-archive
 
-### Structure
+### 3.2.1 Structure
 The export-archive contains the export-metadata and all containers. The containers can be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. The subdirectory-names have no relevance for the import.
 
 Structure:
@@ -94,7 +97,7 @@ export-archive.zip
             |-- meta.json
 ````
 
-### Splitting
+### 3.2.2 Splitting
 Depending on the amount of the documents and the limits of the system an export-archive can become to large to fit all containers into a single zip-archive. In this case the containers MAY be distributed over multiple export-archives. Each export-archives MUST contain the export-archive metadata. A container SHALL NOT be splitted or be placed into multiple export-archives. The extension of the different export-archives keeps `.zip`.
 
 ### Export-archive metadata
@@ -102,5 +105,5 @@ The following JSON-Schema represents the archive-metadata specification. The fil
 
 See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/export.schema.json).
 
-### MIME Type
+### 3.3.3 MIME Type
 The export-archive is a zip, therefore the MIME Type MUST be `application/zip`.
