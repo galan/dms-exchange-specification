@@ -1,7 +1,7 @@
 # DMS Exchange Specification
 Version 1.0.0-beta.1 - released: in development
 
-Table of content
+###Table of content
 * [1. Specification](#1-specification)
 * [2. Terminology](#2-terminology)
 * [3. Packaging](#3-packaging)
