@@ -66,9 +66,7 @@ Example:
 ````
 
 ### 3.1.2 Document-metadata
-The following JSON-Schema represents the metadata specification, any `meta.json`  has to validate against it.
-
-The following JSON-Schema represents the document-metadata specification. The file has to be named `meta.json` and must be placed in the root of the container along with the document-files. If the `meta.json` is invalid, the container is invalid as well.
+The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a JSON-Schema, and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
 
 See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/meta.schema.json).
 
