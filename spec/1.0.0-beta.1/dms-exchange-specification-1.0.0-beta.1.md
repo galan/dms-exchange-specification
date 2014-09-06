@@ -103,7 +103,7 @@ export-archive.zip
 Depending on the amount of the documents and the limits of the system an export-archive can become to large to fit all containers into a single zip-archive. In this case the containers MAY be distributed over multiple export-archives. Each export-archives MUST contain the export-archive metadata. A container SHALL NOT be splitted or be placed into multiple export-archives. The extension of the different export-archives keeps `.zip`.
 
 ### 3.2.3 Export-archive metadata
-The following JSON-Schema represents the archive-metadata specification. The file has to be named `export.json` and must be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
+The following JSON-Schema represents the archive-metadata specification. The file MUST be named `export.json` and MUST be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
 
 See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/export.schema.json).
 
