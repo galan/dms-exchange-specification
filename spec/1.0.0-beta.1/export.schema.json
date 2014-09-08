@@ -17,6 +17,14 @@
 			"type": "string",
 			"format": "email"
 		},
+		"exportSource": {
+			"description": "DMS that has created the export.",
+			"type": "string"
+		},
+		"exportSourceVersion": {
+			"description": "Version of the DMS that has created the export.",
+			"type": "string"
+		},
 		"tsExport": {
 			"description": "Timestamp when the export was performed.",
 			"type": "string",
