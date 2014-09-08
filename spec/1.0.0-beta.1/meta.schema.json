@@ -69,6 +69,10 @@
 			"description": "An id the system has provided for the document",
 			"type": "string"
 		},
+		"project": {
+			"description": "A project the document has been associated with.",
+			"type": "string"
+		},
 		"directory": {
 			"description": "If the dms works hierarchically, this field contains the directory. It is written in *nix-style, starting from the root downwards, using slashes.",
 			"type": "string"
