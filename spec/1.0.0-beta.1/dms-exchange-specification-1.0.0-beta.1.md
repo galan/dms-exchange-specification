@@ -7,6 +7,9 @@ Version 1.0.0-beta.1 - released: in development
 * [3. Packaging](#3-packaging)
   * [3.1 Containers](#31-containers)
   * [3.2 Export-archive](#32-export-archive)
+* [4. Licence](#4-licence)
+
+
 
 # 1. Specification
 
@@ -36,6 +39,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
     The container itself will be added to the export-archive.
 * **Export-archive** - The final zip file that contains all containers and is used by the end-user to transport/export/backup his documents.
+
 
 
 # 3. Packaging
@@ -109,3 +113,8 @@ See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-speci
 
 ### 3.2.4 MIME Type
 The export-archive is a zip, therefore the MIME Type MUST be `application/zip`.
+
+
+
+# 4. Licence
+The specification itself is released under the [Creative Commons - CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
