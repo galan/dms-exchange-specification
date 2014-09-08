@@ -1,5 +1,8 @@
 # FAQ
 
+## My dms does not provide all fields available in the JSON-Schema.
+Most dms do not provide support for all fields, therefore nearly all fields are optional. If your dms does not provide support for eg. a "project" or a "directory" field - simply omit them in the ´meta.json`. During import you can ignore those fields not supported by your dms.
+
 ## How should I provide the archive to the user?
 That's up to the dms provider. Some suggestions/examples how it could work:
 * A simple download-link
