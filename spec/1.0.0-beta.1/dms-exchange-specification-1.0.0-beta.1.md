@@ -18,7 +18,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 1. Software using dxs MUST provide a way to import AND export the desired content via the user-interface (website, desktop or mobile application). Additional the export/import SHOULD be provided by an API.
 2. The import and export SHOULD be transfered over a secure encrypted connection (eg. HTTPS, SSH, SFTP, etc.)
 3. The export MUST comply with the packaging specified in the section "Packaging"
-4. It is REQUIRED that the metadata for the documents and export-archive complies to the respective JSON-Schema.
+4. It is REQUIRED that the metadata for the documents and export-archive complies to the respective [JSON-Schema](http://json-schema.org/).
 
 
 
@@ -70,7 +70,7 @@ Example:
 ````
 
 ### 3.1.2 Document-metadata
-The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a JSON-Schema, and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
+The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a [JSON-Schema](http://json-schema.org/), and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
 
 See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/meta.schema.json).
 
@@ -78,7 +78,7 @@ See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specifi
 ## 3.2 Export-archive
 
 ### 3.2.1 Structure
-The export-archive contains the export-metadata and all containers. The containers can be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. The subdirectory-names have no relevance for the import.
+The export-archive contains the export-metadata and all containers. The containers MUST be put into subdirectories for easier structuring and lowering the amount of files/directories inside a single directory. Directories MAY be nested. The subdirectory-names have no relevance for the import.
 
 Structure:
 ````
@@ -101,13 +101,20 @@ export-archive.zip
         |-- doc-04
             |-- document.pdf
             |-- meta.json
+    |-- 0002-0002
+        |-- invoice-2014.zip
+        |-- doc-05
+            |-- other.pdf
+            |-- meta.json
 ````
 
 ### 3.2.2 Splitting
 Depending on the amount of the documents and the limits of the system an export-archive can become to large to fit all containers into a single zip-archive. In this case the containers MAY be distributed over multiple export-archives. Each export-archives MUST contain the export-archive metadata. A container SHALL NOT be splitted or be placed into multiple export-archives. The extension of the different export-archives keeps `.zip`.
 
 ### 3.2.3 Export-archive metadata
-The following JSON-Schema represents the archive-metadata specification. The file MUST be named `export.json` and MUST be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
+The following [JSON-Schema](http://json-schema.org/) represents the archive-metadata specification. The file MUST be named `export.json` and MUST be placed in the root of the export-archive. If no valid `export.json` exists, the export-archive is invalid.
+
+A dms typically do not provide all options, therefore only fields MUST be set that are available to the specific dms. Eg. if the source dms does support labels but the target does not, the information is exported, but lost during import. It is the responsibility of the user selecting the dms, this goes along with the selection of the available features - or their absence.
 
 See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/0.0.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/0.0.2/export.schema.json).
 
