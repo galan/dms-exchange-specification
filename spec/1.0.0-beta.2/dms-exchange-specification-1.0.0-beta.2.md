@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 1.0.0-beta.1 - released: 2014-09-11
+Version 1.0.0-beta.2 - released: in development
 
 ###Table of content
 * [1. Specification](#1-specification)
@@ -72,7 +72,7 @@ Example:
 ### 3.1.2 Document-metadata
 The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a [JSON-Schema](http://json-schema.org/), and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
 
-See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.1/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.1/meta.schema.json).
+See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.2/meta.schema.json).
 
 
 ## 3.2 Export-archive
@@ -116,7 +116,7 @@ The following [JSON-Schema](http://json-schema.org/) represents the archive-meta
 
 A dms typically do not provide all options, therefore only fields MUST be set that are available to the specific dms. Eg. if the source dms does support labels but the target does not, the information is exported, but lost during import. It is the responsibility of the user selecting the dms, this goes along with the selection of the available features - or their absence.
 
-See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.1/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.1/export.schema.json).
+See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/export.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.2/export.schema.json).
 
 ### 3.2.4 MIME Type
 The export-archive is a zip, therefore the MIME Type MUST be `application/zip`.
