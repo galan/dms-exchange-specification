@@ -9,6 +9,7 @@ List  with vendors or independent implentations will follow
 * [JSON-Schema](http://json-schema.org/)
 * [Online JSON-Schema validator](http://json-schema-validator.herokuapp.com/)
 * [JSON-Schema implementations](http://json-schema.org/implementations.html)
+* [Understanding JSON Schema](http://spacetelescope.github.io/understanding-json-schema/)
 
 ## Zip
 * [Wikipedia](https://en.wikipedia.org/wiki/Zip_%28file_format%29)

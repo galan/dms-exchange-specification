@@ -16,7 +16,7 @@
 				"type": "object",
 				"properties": {
 					"filename": {
-						"description": "Original name of the indexed document-file.",
+						"description": "Name of the indexed document-file inside the container.",
 						"type": "string"
 					},
 					"scannedBy": {
@@ -49,7 +49,7 @@
 			}
 		},
 		"tsDocument": {
-			"description": "Time the document was creating in the dms",
+			"description": "Date of the document",
 			"type": "string",
 			"format": "date-time"
 		},
