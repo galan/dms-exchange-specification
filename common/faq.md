@@ -15,3 +15,10 @@ This is highly dependent on the dms. It contains of the following simple generic
 2. Iterate recursivly over all directories
     1. If a `meta.json` file exists read it and import the documents. Travese directory up and continue (don't recurse inside containers).
     2. If a zip-file exists, read it, extract the `meta.json` and import the documents. Continue to traverse.
+
+## Are there other exchange formats out there?
+To my knowledge I found the following related formats (give me a hint if you know others):
+* docTag
+An initiative by mostly billing-related services that has been started and ceased in 2012. Provides some JSON-Schemas that are invalid (eg. 'date' is no valid format) and code-examples.
+* ODMA (Open Document Management Alliance)
+The ODMA defined APIs for desktop applications accessing dms server. As far I could see it is DLL based and regarding to Wikipedia superseded by other ways of accessing the data inside an dms, namly WebDAV. The website looks out-dated and seems not be maintained anymore.
