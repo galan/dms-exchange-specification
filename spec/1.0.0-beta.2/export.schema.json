@@ -3,6 +3,8 @@
 	"title": "dms-exchange-specification (dxs) export-archive metadata description",
 	"description": "This schema defines metadata for the export",
 	"type": "object",
+	"additionalProperties": false,
+	"required": ["version"],
 	"properties": {
 		"version": {
 			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
@@ -41,6 +43,8 @@
 			"minItems": 0,
 			"items": {
 				"type": "object",
+				"additionalProperties": false,
+				"required": ["filename"],
 				"properties": {
 					"filename": {
 						"description": "Original name of the indexed document-file.",
@@ -50,10 +54,8 @@
 						"description": "Description why the file could not be exported",
 						"type": "string"
 					}
-				},
-				"required": ["filename"]
+				}
 			}
 		}
-    },
-    "required": ["version"]
+    }
 }

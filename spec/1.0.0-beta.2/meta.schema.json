@@ -3,6 +3,8 @@
 	"title": "dms-exchange-specification (dxs) metadata description",
 	"description": "This schema defines the metadata for a document as specified by the dms-exchange-specification.",
 	"type": "object",
+	"additionalProperties": false,
+	"required": ["version", "documents"],
 	"properties": {
 		"version": {
 			"description": "Valid version for this schema.",
@@ -14,6 +16,8 @@
 			"minItems": 1,
 			"items": {
 				"type": "object",
+				"additionalProperties": false,
+				"required": ["filename"],
 				"properties": {
 					"filename": {
 						"description": "Name of the indexed document-file inside the container.",
@@ -44,8 +48,24 @@
 						"enum": [0, 90, 180, 270],
 						"default": 0
 					}
+				}
+			}
+		},
+		"context": {
+			"description": "Information taken from the document content and are inherent to it.",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"tsDocument": {
+					"description": "Date of the document.",
+					"type": "string",
+					"format": "date-time"
 				},
-				"required": ["filename"]
+				"tsDueDate": {
+					"description": "A due date the document might have.",
+					"type": "string",
+					"format": "date-time"
+				}
 			}
 		},
 		"tsDocument": {
@@ -95,6 +115,5 @@
 			"type": "boolean",
 			"default": true
 		}
-	},
-	"required": ["version", "documents"]
+	}
 }
