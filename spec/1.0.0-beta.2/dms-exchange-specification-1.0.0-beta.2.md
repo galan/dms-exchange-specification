@@ -52,24 +52,50 @@ The following section describes how the archive is structured and the containers
 ## 3.1 Containers
 
 ### 3.1.1 Structure
-A container is just a directory with the document-files and the related metadata. This directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance. Containers can not be nested - a directory of a container can not have subdirectories with other containers or other data.
+A container is a directory with the metadata file and subdirectories containing the document-files. This container-directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance. Containers MUST NOT be nested - a directory of a container can not have subdirectories with other containers or other data.
+
+### 3.1.2 Document-files
+The document-files are added to subdirectories, which reflect the revision the document-files have. The creation-timestamp of the document-file represents the time being added to the dms, respective the time being changed inside the dms when it is not the first revision of that document-file.
+
+The last revision of document-files MUST be added to the `current` directory inside the root of the container. If the source dms does not support versioning or the user decides to export only the last revision, this is the only directory required for the container.
+
+If a document-file has several revisions, it is added to a consecutively numbered directory, that MUST be left-padded with `0` (zero) and has 4 digits. The oldest revision MUST be placed in `0001`, the second eldest in `0002`, and so on. The youngest (current) revision MUST be places into the `current` directory. Eg. a document with a document-file that has three revisions places the oldest revision in `0001`, the next one into `0002` and the last and current into `current`.
 
 Structure:
 ````
 container-directory
-|-- document-files
 |-- metadata
+|-- current
+|   |-- document-files
+|-- version-directories
+    |-- document-files
 ````
 
-Example:
+Example with no revisions:
 ````
-0001
-|-- first.jpg
-|-- second.jpg
+<zip or directory>
 |-- meta.json
+|-- current
+   |-- first.jpg
+   |-- second.jpg
 ````
 
-### 3.1.2 Document-metadata
+Example with revisions, where `first.jpg` has no previous revisions, `second.jpg` has one previous revision (in 0001) and `third.jpg` has two previous revisions (in 0001 and 0002):
+````
+<zip or directory>
+|-- meta.json
+|-- current
+|  |-- first.jpg
+|  |-- second.jpg
+|  |-- third.jpg
+|-- 0001
+|  |-- second.jpg
+|  |-- third.jpg
+|-- 0002
+   |-- third.jpg
+````
+
+### 3.1.3 Document-metadata
 The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a [JSON-Schema](http://json-schema.org/), and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
 
 See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.2/meta.schema.json).
@@ -92,16 +118,16 @@ Example:
 ````
 export-archive.zip
 |-- export.json
-|-- 0001
+|-- sample-directory
 |   |-- doc-01.zip
 |   |-- doc-02.zip
-|-- 0002
-    |-- 0002-0001
+|-- other-directory
+    |-- sub-0001
         |-- doc-03.zip
         |-- doc-04
             |-- document.pdf
             |-- meta.json
-    |-- 0002-0002
+    |-- sub-0002
         |-- invoice-2014.zip
         |-- doc-05
             |-- other.pdf

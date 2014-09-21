@@ -38,11 +38,6 @@
 						"type": "string",
 						"format": "date-time"
 					},
-					"tsUpdate": {
-						"description": "Timestamp when the document-file has been changed the last time",
-						"type": "string",
-						"format": "date-time"
-					},
 					"rotation": {
 						"description": "Degree the document-file has to rotate clockwise to have a correct orientation.",
 						"enum": [0, 90, 180, 270],
