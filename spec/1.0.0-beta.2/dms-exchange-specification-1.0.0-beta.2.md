@@ -96,7 +96,7 @@ Example with revisions, where `first.jpg` has no previous revisions, `second.jpg
 ````
 
 ### 3.1.3 Document-metadata
-The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the document-files. The structure of the document-metadata is specified by a [JSON-Schema](http://json-schema.org/), and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed to the user, so he can take appropriate steps.
+The document-metadata file MUST be named `meta.json` and MUST be placed in the root of the container along with the directories that contain the document-files. The structure of the document-metadata is specified by a [JSON-Schema](http://json-schema.org/), and the `meta.json` file MUST validate against it. If `meta.json` is invalid, the container is invalid as well. Invalid containers MAY be ignored during the import, in this case the invalid containers MUST be listed in the export-metadata, so the user can take appropriate steps.
 
 See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.2/meta.schema.json).
 
@@ -123,10 +123,10 @@ export-archive.zip
 |   |-- doc-02.zip
 |-- other-directory
     |-- sub-0001
-        |-- doc-03.zip
-        |-- doc-04
-            |-- document.pdf
-            |-- meta.json
+    |   |-- doc-03.zip
+    |   |-- doc-04
+    |       |-- document.pdf
+    |       |-- meta.json
     |-- sub-0002
         |-- invoice-2014.zip
         |-- doc-05
