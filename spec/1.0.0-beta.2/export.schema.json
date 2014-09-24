@@ -19,13 +19,30 @@
 			"type": "string",
 			"format": "email"
 		},
-		"exportSource": {
-			"description": "DMS that has created the export.",
-			"type": "string"
-		},
-		"exportSourceVersion": {
-			"description": "Version of the DMS that has created the export.",
-			"type": "string"
+		"source": {
+		    "description": "Information about the system that has created the export.",
+		    "type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"description": "Name of the system that has created the export.",
+					"type": "string"
+				},
+				"version": {
+					"description": "Version of the system that has created the export.",
+					"type": "string"
+				},
+				"url": {
+					"description": "Website from the vendor of the system that has created the export.",
+					"type": "string",
+					"format": "uri"
+				},
+				"email": {
+					"description": "Email to contact the vendor of the system that has created the export.",
+					"type": "string",
+					"format": "email"
+				}
+			}
 		},
 		"tsExport": {
 			"description": "Timestamp when the export was performed.",
