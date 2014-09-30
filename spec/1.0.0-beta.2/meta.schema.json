@@ -76,6 +76,32 @@
 			"description": "Physical location of the scanned documents, if available",
 			"type": "string"
 		},
+		"comments": {
+			"description": "Comments added to a document",
+			"type": "array",
+			"minItems": 0,
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"required": ["commentBy", "tsComment", "content"],
+				"properties": {
+					"commentBy": {
+						"description": "User who has added a comment.",
+						"type": "string",
+						"format": "email"
+					},
+					"tsComment": {
+						"description": "Timestamp when the comment was added.",
+						"type": "string",
+						"format": "date-time"
+					},
+					"content": {
+						"description": "Text of the comment.",
+						"type": "string"
+					}
+				}
+			}
+		},
 		"idUser": {
 			"description": "An id the user can define uniquely for the document",
 			"type": "string"
@@ -106,7 +132,7 @@
 			"default": true
 		},
 		"optionOcr": {
-			"description": "Should the document be analysed or not.",
+			"description": "Should the document be analyzed or not.",
 			"type": "boolean",
 			"default": true
 		}
