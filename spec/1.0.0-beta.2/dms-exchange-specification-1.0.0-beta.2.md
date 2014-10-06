@@ -15,7 +15,7 @@ Version 1.0.0-beta.2 - released: in development
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
-1. Software using dxs MUST provide a way to import AND export the desired content via the user-interface (website, desktop or mobile application). Additional the export/import SHOULD be provided by an API.
+1. Software using the dms-exchange-specification MUST provide a way to import AND export the desired content via the user-interface (website, desktop or mobile application). Additional the export/import SHOULD be provided by an API.
 2. The import and export SHOULD be transfered over a secure encrypted connection (eg. HTTPS, SSH, SFTP, etc.)
 3. The export MUST comply with the packaging specified in the section "Packaging"
 4. It is REQUIRED that the metadata for the documents and export-archive complies to the respective [JSON-Schema](http://json-schema.org/).
