@@ -63,11 +63,6 @@
 				}
 			}
 		},
-		"tsDocument": {
-			"description": "Date of the document",
-			"type": "string",
-			"format": "date-time"
-		},
 		"note": {
 			"description": "Free text field for document-notes, made by the users",
 			"type": "string"
