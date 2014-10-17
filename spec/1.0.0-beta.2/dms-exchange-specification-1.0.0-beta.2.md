@@ -52,14 +52,12 @@ The following section describes how the archive is structured and the containers
 ## 3.1 Containers
 
 ### 3.1.1 Structure
-A container is a directory with the metadata file and subdirectories containing the document-files. This container-directory can be optionally compressed into a single zip-archive. The name of the directory or zip-archive has no relevance. Containers MUST NOT be nested - a directory of a container can not have subdirectories with other containers or other data.
+A container is a directory with the metadata file and subdirectories containing the document-files. This container-directory can be optionally compressed into a single zip-archive. The name of the container-directory or zip-archive has no relevance. Containers MUST NOT be nested - a directory of a container can not have subdirectories with other containers or other data.
 
 ### 3.1.2 Document-files
-The document-files are added to subdirectories, which reflect the revision the document-files have. The creation-timestamp of the document-file represents the time being added to the dms, respective the time being changed inside the dms when it is not the first revision of that document-file.
+The last revision of document-files MUST be added to the `current` directory, which is placed in the root of the container. If the source dms does not support versioning or the user decides to export only the last revision, this is the only directory required for the container. The document inside the `current` directory has to match the `filename`-property inside the metadata.
 
-The last revision of document-files MUST be added to the `current` directory inside the root of the container. If the source dms does not support versioning or the user decides to export only the last revision, this is the only directory required for the container.
-
-If a document-file has several revisions, it is added to a consecutively numbered directory, that MUST be left-padded with `0` (zero) and has 4 digits. The oldest revision MUST be placed in `0001`, the second eldest in `0002`, and so on. The youngest (current) revision MUST be places into the `current` directory. Eg. a document with a document-file that has three revisions places the oldest revision in `0001`, the next one into `0002` and the last and current into `current`.
+If revisions are going to be exported, they MUST be placed inside the `revisions` directory. The filename is composed by the filename (`filename`-property) and the change-timestamp (`tsChanged`-property in UTC): `<filename>_yyyyMMdd-HHmmss`
 
 Structure:
 ````
@@ -67,7 +65,7 @@ container-directory
 |-- metadata
 |-- current
 |   |-- document-files
-|-- version-directories
+|-- revisions
     |-- document-files
 ````
 
@@ -80,7 +78,7 @@ Example with no revisions:
    |-- second.jpg
 ````
 
-Example with revisions, where `first.jpg` has no previous revisions, `second.jpg` has one previous revision (in 0001) and `third.jpg` has two previous revisions (in 0001 and 0002):
+Example with revisions, where `first.jpg` has no previous revisions, `second.jpg` has one previous revision and `third.jpg` has two previous revisions:
 ````
 <zip or directory>
 |-- meta.json
@@ -88,11 +86,10 @@ Example with revisions, where `first.jpg` has no previous revisions, `second.jpg
 |  |-- first.jpg
 |  |-- second.jpg
 |  |-- third.jpg
-|-- 0001
-|  |-- second.jpg
-|  |-- third.jpg
-|-- 0002
-   |-- third.jpg
+|-- revisions
+|  |-- second.jpg_20140516-173112
+|  |-- third.jpg_20130612-085209
+   |-- third.jpg_20141013-131050
 ````
 
 ### 3.1.3 Document-metadata
