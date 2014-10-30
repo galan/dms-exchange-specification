@@ -57,7 +57,7 @@ A container is a directory with the metadata file and subdirectories containing 
 ### 3.1.2 Document-files
 The last revision of document-files MUST be added to the `current` directory, which is placed in the root of the container. If the source dms does not support versioning or the user decides to export only the last revision, this is the only directory required for the container. The document inside the `current` directory has to match the `filename`-property inside the metadata.
 
-If revisions are going to be exported, they MUST be placed inside the `revisions` directory. The filename is composed by the filename (`filename`-property) and the change-timestamp (`tsChanged`-property in UTC): `<filename>_yyyyMMdd-HHmmss`
+If revisions are going to be exported, they MUST be placed inside the `revisions` directory. The filename is composed by the filename (`filename`-property) and the change-timestamp (`tsChanged`-property in UTC): `<filename>_yyyyMMdd'T'HHmmss'Z'`
 
 Structure:
 ````
@@ -66,7 +66,7 @@ container-directory
 |-- current
 |   |-- document-files
 |-- revisions
-    |-- document-files
+    |-- document-files with timestamp
 ````
 
 Example with no revisions:
@@ -87,9 +87,9 @@ Example with revisions, where `first.jpg` has no previous revisions, `second.jpg
 |  |-- second.jpg
 |  |-- third.jpg
 |-- revisions
-|  |-- second.jpg_20140516-173112
-|  |-- third.jpg_20130612-085209
-   |-- third.jpg_20141013-131050
+|  |-- second.jpg_20140516T173112Z
+|  |-- third.jpg_20130612T085209Z
+   |-- third.jpg_20141013T131050Z
 ````
 
 ### 3.1.3 Document-metadata
