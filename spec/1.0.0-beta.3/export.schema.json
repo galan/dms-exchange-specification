@@ -1,0 +1,78 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "dms-exchange-specification (dxs) export-archive metadata description",
+	"description": "This schema defines metadata for the export",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["version"],
+	"properties": {
+		"version": {
+			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
+			"enum": ["1.0.0-beta.3"]
+		},
+		"description": {
+		    "description": "Free-text field for additional information",
+		    "type": "string"
+		},
+		"exportBy": {
+			"description": "User who has triggered the export.",
+			"type": "string",
+			"format": "email"
+		},
+		"source": {
+		    "description": "Information about the system that has created the export.",
+		    "type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"description": "Name of the system that has created the export.",
+					"type": "string"
+				},
+				"version": {
+					"description": "Version of the system that has created the export.",
+					"type": "string"
+				},
+				"url": {
+					"description": "Website from the vendor of the system that has created the export.",
+					"type": "string",
+					"format": "uri"
+				},
+				"email": {
+					"description": "Email to contact the vendor of the system that has created the export.",
+					"type": "string",
+					"format": "email"
+				}
+			}
+		},
+		"tsExport": {
+			"description": "Timestamp when the export was performed.",
+			"type": "string",
+			"format": "date-time"
+		},
+		"documentsSuccessfulAmount": {
+		    "description": "The number of documents in this archive that have been successful exported. Optional, since depending on the export-process this might not be known in advance.",
+		    "type": "integer",
+		    "minimum": 0
+		},
+		"documentsFailed": {
+		    "description": "A list of documents that could not be exported successful.",
+		    "type": "array",
+			"minItems": 0,
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"required": ["filename"],
+				"properties": {
+					"filename": {
+						"description": "Original name of the indexed document-file.",
+						"type": "string"
+					},
+					"reason": {
+						"description": "Description why the file could not be exported",
+						"type": "string"
+					}
+				}
+			}
+		}
+    }
+}

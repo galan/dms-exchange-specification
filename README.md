@@ -5,8 +5,8 @@ To provide feedback, please [open an issue on github](https://github.com/galan/d
 
 # Specification
 
-* Current Version: [1.0.0-beta.1](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.1/dms-exchange-specification-1.0.0-beta.1.md)
-* Development Version: [1.0.0-beta.2](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/dms-exchange-specification-1.0.0-beta.2.md)
+* Current Version: [1.0.0-beta.2](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/dms-exchange-specification-1.0.0-beta.2.md)
+* Development Version: [1.0.0-beta.3](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.3/dms-exchange-specification-1.0.0-beta.3.md)
 * All Versions: [List](https://github.com/galan/dms-exchange-specification/blob/master/spec)
 
 # Introduction

@@ -1,0 +1,156 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "dms-exchange-specification (dxs) metadata description",
+	"description": "This schema defines the metadata for a single document as specified by the dms-exchange-specification.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["version", "documentFiles"],
+	"properties": {
+		"version": {
+			"description": "Valid version for this schema.",
+			"enum": ["1.0.0-beta.3"]
+		},
+		"documentFiles": {
+			"description": "Groups the document-files that form a document.",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"required": ["filename"],
+				"properties": {
+					"filename": {
+						"description": "Name of the indexed document-file inside the container.",
+						"type": "string"
+					},
+					"scannedBy": {
+						"description": "User who has scanned the document-file.",
+						"type": "string",
+						"format": "email"
+					},
+					"importedBy": {
+						"description": "User who has indexed the document-file",
+						"type": "string",
+						"format": "email"
+					},
+					"tsUpload": {
+						"description": "Timestamp when the document-file has been added to the dms",
+						"type": "string",
+						"format": "date-time"
+					},
+					"rotation": {
+						"description": "Degree the document-file has to rotate clockwise to have a correct orientation.",
+						"enum": [0, 90, 180, 270],
+						"default": 0
+					},
+					"revisions": {
+						"description": "Optional revisions of a document-file.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"additionalProperties": false,
+							"required": ["tsChanged"],
+							"properties": {
+								"changedBy": {
+									"description": "User who has made a modification",
+									"type": "string",
+									"format": "email"
+								},
+								"tsChanged": {
+									"description": "Timestamp when the document-file has been changed.",
+									"type": "string",
+									"format": "date-time"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"context": {
+			"description": "Information taken from the document content and are inherent to it.",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"tsDocument": {
+					"description": "Date of the document.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"tsDueDate": {
+					"description": "A due date the document might have.",
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"note": {
+			"description": "Free text field for document-notes, made by the users",
+			"type": "string"
+		},
+		"location": {
+			"description": "Physical location of the scanned documents, if available",
+			"type": "string"
+		},
+		"comments": {
+			"description": "Comments added to a document",
+			"type": "array",
+			"minItems": 0,
+			"items": {
+				"type": "object",
+				"additionalProperties": false,
+				"required": ["commentBy", "tsComment", "content"],
+				"properties": {
+					"commentBy": {
+						"description": "User who has added a comment.",
+						"type": "string",
+						"format": "email"
+					},
+					"tsComment": {
+						"description": "Timestamp when the comment was added.",
+						"type": "string",
+						"format": "date-time"
+					},
+					"content": {
+						"description": "Text of the comment.",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"idUser": {
+			"description": "An id the user can define uniquely for the document",
+			"type": "string"
+		},
+		"idSystem": {
+			"description": "An id the system has provided for the document",
+			"type": "string"
+		},
+		"project": {
+			"description": "A project the document has been associated with.",
+			"type": "string"
+		},
+		"directory": {
+			"description": "If the dms works hierarchically, this field contains the directory. It is written in *nix-style, starting from the root downwards, using slashes.",
+			"type": "string"
+		},
+		"labels": {
+			"description": "Tagging keywords",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"uniqueItems": true
+		},
+		"optionIndexed": {
+			"description": "Should the document be shown in the index (if using a search), or only when the user navigates to the document explicitly.",
+			"type": "boolean",
+			"default": true
+		},
+		"optionOcr": {
+			"description": "Should the document be analyzed or not.",
+			"type": "boolean",
+			"default": true
+		}
+	}
+}
