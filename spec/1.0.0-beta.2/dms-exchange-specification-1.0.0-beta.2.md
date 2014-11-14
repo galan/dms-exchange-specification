@@ -87,8 +87,8 @@ Example with revisions, where `first.jpg` has no previous revisions, `second.jpg
 |  |-- second.jpg
 |  |-- third.jpg
 |-- revisions
-|  |-- second.jpg_20140516T173112Z
-|  |-- third.jpg_20130612T085209Z
+   |-- second.jpg_20140516T173112Z
+   |-- third.jpg_20130612T085209Z
    |-- third.jpg_20141013T131050Z
 ````
 
