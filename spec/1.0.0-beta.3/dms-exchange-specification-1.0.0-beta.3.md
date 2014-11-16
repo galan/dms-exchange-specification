@@ -52,44 +52,43 @@ The following section describes how the archive is structured and the containers
 ## 3.1 Containers
 
 ### 3.1.1 Structure
-A container is a directory with the metadata file and subdirectories containing the document-files. This container-directory can be optionally compressed into a single zip-archive. The name of the container-directory or zip-archive has no relevance. Containers MUST NOT be nested - a directory of a container can not have subdirectories with other containers or other data.
+A container is a directory with the metadata-file and a subdirectory containing the revisions of the document-files. This container-directory can be optionally compressed into a single zip-archive. The name of the container-directory or zip-archive has no relevance. Containers MUST NOT be nested - a directory of a container can not have subdirectories with other containers or other data.
 
 ### 3.1.2 Document-files
-The last revision of document-files MUST be added to the `current` directory, which is placed in the root of the container. If the source dms does not support versioning or the user decides to export only the last revision, this is the only directory required for the container. The document inside the `current` directory has to match the `filename`-property inside the metadata.
+Each revision of a document-files MUST be placed in the `revisions` directory, which is placed in the root of the container. The document-file inside the `revisions` directory is composed by the added-timestamp (`tsAdded`-property in UTC) and the filename (`filename`-property), separated by an underscore: `yyyyMMdd'T'HHmmss'Z'_<filename>`
 
-If revisions are going to be exported, they MUST be placed inside the `revisions` directory. The filename is composed by the filename (`filename`-property) and the change-timestamp (`tsChanged`-property in UTC): `<filename>_yyyyMMdd'T'HHmmss'Z'`
+A dms CAN provide an option to export only the latest revisons of the document-files. This can help reducing the size of the export-file.
+
+The order of the document-files is defined by the sequence of the elements in the `documentFiles`-array in the metadata.
 
 Structure:
 ````
 container-directory
 |-- metadata
-|-- current
-|   |-- document-files
-|-- revisions
+|-- revisions-directory
     |-- document-files with timestamp
 ````
 
-Example with no revisions:
+Example with two document-files that have a single revisions:
 ````
 <zip or directory>
 |-- meta.json
-|-- current
-   |-- first.jpg
-   |-- second.jpg
+|-- revisions
+   |-- 20140516T173112Z_first.jpg
+   |-- 20140510T123210Z_second.jpg
 ````
 
-Example with revisions, where `first.jpg` has no previous revisions, `second.jpg` has one previous revision and `third.jpg` has two previous revisions:
+Example with three document-files, where `first.jpg` has a single revision, `second.jpg` has two revision and `third.jpg` has three revisions:
 ````
 <zip or directory>
 |-- meta.json
-|-- current
-|  |-- first.jpg
-|  |-- second.jpg
-|  |-- third.jpg
 |-- revisions
-   |-- second.jpg_20140516T173112Z
-   |-- third.jpg_20130612T085209Z
-   |-- third.jpg_20141013T131050Z
+   |-- 20130102T091001Z_first.jpg
+   |-- 20130612T085209Z_second.jpg
+   |-- 20140310T123045Z_third.jpg
+   |-- 20140516T173112Z_second.jpg
+   |-- 20140609T103010Z_third.jpg
+   |-- 20141013T131050Z_third.jpg
 ````
 
 ### 3.1.3 Document-metadata
@@ -111,7 +110,7 @@ export-archive
     |-- containers
 ````
 
-Example:
+Example of one export archive named `export-archive.zip` with six containers:
 ````
 export-archive.zip
 |-- export.json
@@ -122,13 +121,16 @@ export-archive.zip
     |-- sub-0001
     |   |-- doc-03.zip
     |   |-- doc-04
-    |       |-- document.pdf
     |       |-- meta.json
+    |       |-- revisions
+    |           |-- document.pdf
     |-- sub-0002
-        |-- invoice-2014.zip
         |-- doc-05
-            |-- other.pdf
-            |-- meta.json
+        |   |-- meta.json
+        |   |-- revisions
+        |       |-- other.pdf
+        |-- invoice-2014.zip
+
 ````
 
 ### 3.2.2 Splitting
@@ -144,8 +146,5 @@ See `export.schema.json` on [GitHub](https://github.com/galan/dms-exchange-speci
 ### 3.2.4 MIME Type
 The export-archive is a zip, therefore the MIME Type MUST be `application/zip`.
 
-
-
 # 4. Licence
 The specification itself is released under the [Creative Commons - CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
-
