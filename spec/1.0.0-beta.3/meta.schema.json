@@ -34,7 +34,7 @@
 						"default": 0
 					},
 					"revisions": {
-						"description": "Revisions of a document-file.",
+						"description": "Revisions of a document-file. The entry with the latest tsAdded is the current version.",
 						"type": "array",
 						"items": {
 							"type": "object",
