@@ -27,7 +27,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 * **Page** - A single page of a document (eg. A4, Letter, custom, ..).
 * **Document-file** - A file that is processable by a dms and contains at least one page.
 
-    Document-files that can contain only one page are images (eg. jpg, tiff, png, ..) as well as some other formats such as txt (no sematical boundaries). Other document-files can contain more then one page (eg. pdf, doc, ppt, ..)
+    Document-files that can contain only one page are images (eg. jpg, tiff, png, ..) as well as some other formats such as txt (no semantical boundaries). Other document-files can contain more then one page (eg. pdf, doc, ppt, ..).
+* **Revision** - Each document-file consists of at least one revision, where each has a datetime associated to determine the order of them.
 * **Document** - A document consists of at least one document-file, subsequent of at least one page.
 
     *Example 1*: A physical document with four pages have been scanned into four jpg files. The document consists of four document-files with four pages.
