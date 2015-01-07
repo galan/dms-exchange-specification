@@ -23,18 +23,13 @@
 						"description": "Name of the indexed document-file inside the container.",
 						"type": "string"
 					},
-					"scannedBy": {
-						"description": "User who has scanned the document-file.",
-						"type": "string",
-						"format": "email"
-					},
 					"rotation": {
 						"description": "Degree the document-file has to rotate clockwise to have a correct orientation.",
 						"enum": [0, 90, 180, 270],
 						"default": 0
 					},
 					"revisions": {
-						"description": "Revisions of a document-file. The entry with the latest tsAdded is the current version.",
+						"description": "Revisions of a document-file.",
 						"type": "array",
 						"items": {
 							"type": "object",
@@ -42,12 +37,12 @@
 							"required": ["tsAdded"],
 							"properties": {
 								"addedBy": {
-									"description": "User who has added the revision.",
+									"description": "User who has added or changed the revision.",
 									"type": "string",
 									"format": "email"
 								},
 								"tsAdded": {
-									"description": "Timestamp when the revision of the document-file has been added.",
+									"description": "Timestamp when the revision of the document-file has been added or changed.",
 									"type": "string",
 									"format": "date-time"
 								}

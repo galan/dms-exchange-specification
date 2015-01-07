@@ -4,7 +4,7 @@
 	"description": "This schema defines metadata for the export",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["version"],
+	"required": ["version", "tsExport"],
 	"properties": {
 		"version": {
 			"description": "Valid version for this export and containers. All metadata files from the containers (meta.json) have to match this version, otherwise the container is invalid.",
@@ -61,14 +61,18 @@
 			"items": {
 				"type": "object",
 				"additionalProperties": false,
-				"required": ["filename"],
+				"required": ["message"],
 				"properties": {
-					"filename": {
-						"description": "Original name of the indexed document-file.",
+					"message": {
+						"description": "Errormessage why the document could not be exported.",
 						"type": "string"
 					},
-					"reason": {
-						"description": "Description why the file could not be exported",
+					"idUser": {
+						"description": "An id the user might have defined uniquely for the document.",
+						"type": "string"
+					},
+					"idSystem": {
+						"description": "An id the system might have provided for the document.",
 						"type": "string"
 					}
 				}
