@@ -52,7 +52,8 @@
 		"documentsSuccessfulAmount": {
 		    "description": "The number of documents in this archive that have been successful exported. Optional, since depending on the export-process this might not be known in advance.",
 		    "type": "integer",
-		    "minimum": 0
+		    "minimum": 0,
+		    "default": 0
 		},
 		"documentsFailed": {
 		    "description": "A list of documents that could not be exported successful.",
