@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 1.0.0-beta.3 - released: in development
+Version 1.0.0-beta.3 - 21.02.2015
 
 ###Table of content
 * [1. Specification](#1-specification)

@@ -5,8 +5,8 @@ To provide feedback, please [open an issue on github](https://github.com/galan/d
 
 # Specification
 
-* Current Version: [1.0.0-beta.2](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.2/dms-exchange-specification-1.0.0-beta.2.md)
-* Development Version: [1.0.0-beta.3](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.3/dms-exchange-specification-1.0.0-beta.3.md)
+* Current Version: [1.0.0-beta.3](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.3/dms-exchange-specification-1.0.0-beta.3.md)
+* Development Version: [1.0.0-beta.4](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.4/dms-exchange-specification-1.0.0-beta.4.md)
 * All Versions: [List](https://github.com/galan/dms-exchange-specification/blob/master/spec)
 
 # Introduction
@@ -16,7 +16,7 @@ Without the ability to switch the underlying dms, you're stuck - a classical ven
 Switching a dms isn't always a voluntary choice, from time to time cloud-based dms-provider stop working (last seen on doctape.com and doo.com), stop developing their products, or might become the inappropriate tool for your process.
 There is no standard to export the indexed documents. Nearly all dms vendors provide the ability to download single documents (via the user-interface), some provide an API, just a few provide more. But in common there is something missing that makes the dms valuable - the metadata. Only exporting your documents will left you to have to start the indexing process all over again, beside the huge time effort you won't be able to get it 100% equal again.
 
-To create a full export of all your documents along with the metadata (the main reason to use a dms and not the plain filesystem) a standard is required, vendors and users can rely on. This is the purpose of this speficication. In the first revision the core-features of a dms will be covered, these are documents and metadata. Vendor-specific parts are intentionally left out, such as workflows, usermanagement and constraints, etc.. Everyone is welcome to contribute input, ideas, proofreading, etc. in order to create a (hopefully) industry-wide standard that revives the tool-landscape.
+To create a full export of all your documents along with the metadata (the main reason to use a dms and not the plain filesystem) a standard is required, vendors and users can rely on. This is the purpose of this specification. In the first revision the core-features of a dms will be covered, these are documents and metadata. Vendor-specific parts are intentionally left out, such as workflows, usermanagement and constraints, etc.. Everyone is welcome to contribute input, ideas, proofreading, etc. in order to create a (hopefully) industry-wide standard that revives the tool-landscape.
 
 For feedback, please [open an issue on github](https://github.com/galan/dms-exchange-specification/issues) or create a pull request.
 

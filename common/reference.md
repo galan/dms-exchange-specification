@@ -11,9 +11,10 @@ List  with vendors or independent implentations will follow
 * [JSON-Schema implementations](http://json-schema.org/implementations.html)
 * [Understanding JSON Schema](http://spacetelescope.github.io/understanding-json-schema/)
 
-## Zip
-* [Wikipedia](https://en.wikipedia.org/wiki/Zip_%28file_format%29)
-* Documentation for some languages: [Java](http://docs.oracle.com/javase/8/docs/api/java/util/zip/package-summary.html), [C#](http://msdn.microsoft.com/de-de/library/system.io.compression.ziparchive.aspx), [Phyton](https://docs.python.org/3.4/library/zipfile.html), [PHP](http://php.net/manual/en/book.zip.php), [C/C++](http://www.zlib.net/)
+## Tar/Gzip
+* [Wikipedia Gzip](https://en.wikipedia.org/wiki/Gzip)
+* [Wikipedia Tar](https://en.wikipedia.org/wiki/Tar_%28computing%29)
+* Implementations for some languages: [Java](http://commons.apache.org/proper/commons-compress/examples.html), [C#](http://sevenziplib.codeplex.com/), [Phyton](https://docs.python.org/3/library/tarfile.html), [C/C++](http://www.zlib.net/)
 
 ## Other
 * [Semantic Versioning](http://semver.org/)
