@@ -6,7 +6,7 @@ To provide feedback, please [open an issue on github](https://github.com/galan/d
 # Specification
 
 * [Current version (1.0.0)](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0/dms-exchange-specification-1.0.0.md)
-* [All versions](https://github.com/galan/dms-exchange-specification/blob/master/spec)
+* [Change History](https://github.com/galan/dms-exchange-specification/blob/master/common/changehistory.md)
 
 # Introduction
 The world of document-management-systems (dms for short) - for decades experts have preached the paperless office. Once scanned and indexed, tagged and categorized, linked and rotated, sorted and archived,.. finally a document is just a few clicks away. So basically in order to make the paperless office a reality, a lot of hard and often dull work has to be invested. It doesn't matter if you're doing this as an individual or as a company, you choose your dms and start the process. The benefits of a maintained dms are obvious, but there is one point that prevents the industry imho from a lift-off: Interoperability.
@@ -21,6 +21,6 @@ For feedback, please [open an issue on github](https://github.com/galan/dms-exch
 
 # Further reading
 * [FAQ](https://github.com/galan/dms-exchange-specification/blob/master/common/faq.md)
-* [Change History](https://github.com/galan/dms-exchange-specification/blob/master/common/changehistory.md)
 * [Reference](https://github.com/galan/dms-exchange-specification/blob/master/common/reference.md)
 * [About](https://github.com/galan/dms-exchange-specification/blob/master/common/about.md)
+
