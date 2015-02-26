@@ -8,7 +8,7 @@
 	"properties": {
 		"version": {
 			"description": "Valid version for this schema.",
-			"enum": ["1.0.0-beta.4"]
+			"enum": ["1.0.0"]
 		},
 		"createdTime": {
 			"description": "Timestamp when the container was created/exported.",

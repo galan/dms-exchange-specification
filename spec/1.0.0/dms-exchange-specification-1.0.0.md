@@ -1,5 +1,5 @@
 # DMS Exchange Specification
-Version 1.0.0-beta.4 - released: in development
+Version 1.0.0 - released: 26.02.2015
 
 ###Table of content
 * [1. Specification](#1-specification)
@@ -99,7 +99,7 @@ The document-metadata file MUST be named `meta.json` and MUST be placed in the r
 
 A dms typically do not provide all options, therefore only fields MUST be set that are available to the specific dms. Eg. if the source dms does support labels but the target does not, the information is exported, but lost during import. It is the responsibility of the user selecting the dms, this goes along with the selection of the available features - or their absence.
 
-See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0-beta.4/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0-beta.4/meta.schema.json).
+See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specification/blob/master/spec/1.0.0/meta.schema.json) or [Raw](https://raw.githubusercontent.com/galan/dms-exchange-specification/master/spec/1.0.0/meta.schema.json).
 
 
 ## 3.2 Export-archive

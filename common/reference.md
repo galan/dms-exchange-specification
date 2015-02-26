@@ -19,3 +19,4 @@ List  with vendors or independent implentations will follow
 ## Other
 * [Semantic Versioning](http://semver.org/)
 * [Document management system (Wikipedia)](https://en.wikipedia.org/wiki/Document_management_system)
+
