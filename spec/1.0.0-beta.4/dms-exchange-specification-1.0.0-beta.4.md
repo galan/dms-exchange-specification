@@ -4,7 +4,6 @@ Version 1.0.0-beta.4 - released: in development
 ###Table of content
 * [1. Specification](#1-specification)
 * [2. Terminology](#2-terminology)
-* 
 * [3. Packaging](#3-packaging)
   * [3.1 Containers](#31-containers)
   * [3.2 Export-archive](#32-export-archive)
@@ -37,10 +36,10 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
     *Example 2*: A physical document with four pages that have been scanned into one pdf file. The document consists of one document-file with four pages.
 
     *Example 3*: A physical document with four double-sided pages have been scanned into four pdf files. Each document-files contains two pages. The document consists of four document-files with eight pages.
-* **Container** - A container consists of the document and the associated metadata. It groups the document-files and the metadata in a simple directory structure, which is put into an (optionaly compressed) archive.
+* **Container** - A container consists of the document and the associated metadata. It groups the document-files and the metadata in a simple directory structure, which is put into an archive.
 
-    The container can be used to exchange a single document, or by adding multiple containers to an export-archive for larger exports.
-* **Export-archive** - A gzip compressed stream of containers that can be used to exchange (transport/export/backup) multiple document-containers.
+    The container can be used to exchange a single document when compressed, or by adding multiple uncompressed containers to an export-archive for larger exports.
+* **Export-archive** - A gzip compressed stream of uncompressed containers that can be used to exchange (transport/export/backup) multiple document-containers.
 
 
 
@@ -67,7 +66,7 @@ Structure:
 
 
 ### 3.1.2 Document-files
-Each revision of a document-files MUST be placed in the `revisions` directory, which is placed in the root of the container. The document-file inside the `revisions` directory is composed by the added-timestamp (`tsAdded`-property in UTC) and the filename (`filename`-property), separated by an underscore: `yyyyMMdd'T'HHmmss'Z'_<filename>`
+Each revision of a document-files MUST be placed in the `revisions` directory, which is placed in the root of the container. The document-file inside the `revisions` directory is composed by the added-timestamp (`addedTime`-property in UTC) and the filename (`filename`-property), separated by an underscore: `yyyyMMdd'T'HHmmss'Z'_<filename>`
 
 A dms CAN provide an option to export only the latest revisons of the document-files. This can help reducing the size of the container/export-archive file.
 
@@ -107,11 +106,11 @@ See `meta.schema.json` on [GitHub](https://github.com/galan/dms-exchange-specifi
 The export-archive is used to bundle and exchange multiple documents. It is basically a tar.gz file including the containers.
 
 ### 3.2.1 Structure
-The documents are added as a stream of containers, which are written to a tar file. The resulting archive MUST be compressed using gzip, resulting in the extension `.tar.gz` or `.tgz` (prefered).
+The documents and their metadata are added as a stream of containers, which are written to a tar file. The resulting archive MUST be compressed using gzip, resulting in the extension `.tar.gz` or `.tgz` (prefered).
 
-The added containers MUST be archived using tar, without being compressed using gzip. This is only the case when a single document should be exchanged.
+The added containers MUST be archived using tar, without being compressed using gzip (this is only the case when a single container should be exchanged).
 
-The containers MUST be spread into subdirectories for easier structuring and lowering the amount of files inside a single directory. The subdirectory-names have no relevance for the import. The following proposed directory-structure CAN be used, it consists of two subdirectories and containers with zero-left padded directory- and file names: `0000/0000/0000.tar`.
+The containers MUST be spread into subdirectories for easier structuring and lowering the amount of files inside a single directory. The subdirectory-names have no relevance for the import. The following proposed directory-structure CAN be used, it consists of two subdirectories and a container with zero-left padded directory- and file names: `0000/0000/0000.tar`.
 
 Structure:
 ````
@@ -123,16 +122,16 @@ Structure:
 Example of one export archive named `export-archive.tgz` with multiple containers:
 ````
 export-archive.tgz
-|-- 000
-    |-- 000
-    |   |-- 000.tar
-    |   |-- 001.tar
-    |   |-- 002.tar
+|-- 0000
+    |-- 0000
+    |   |-- 0000.tar
+    |   |-- 0001.tar
+    |   |-- 0002.tar
     |    ...
-    |-- 001
-        |-- 000.tar
-        |-- 001.tar
-        |-- 002.tar
+    |-- 0001
+        |-- 0000.tar
+        |-- 0001.tar
+        |-- 0002.tar
 ````
 
 ### 3.2.2 Splitting
@@ -143,3 +142,4 @@ The export-archive is a gzipped compressed tar, therefore the MIME Type MUST be 
 
 # 4. Licence
 The specification itself is released under the [Creative Commons - CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+
